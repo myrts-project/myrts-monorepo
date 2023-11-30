@@ -1,0 +1,24 @@
+[Unit]
+Description=Remote access for myrts
+
+[Service]
+ExecStart=/var/lib/myrts/api-bin
+User=root
+Restart=always
+Environment="SMTP_HOST=smtpdm-ap-southeast-1.aliyun.com"
+Environment="SMTP_PORT=465"
+Environment="SMTP_USER=info@services.myrts.id"
+Environment="SMTP_PASS=LS5rh7ZsnJzQMFMfZdFJ"
+Environment="SMTP_FROM=info@services.myrts.id"
+Environment="DATABASE_URL=postgres://myrts_prod_user:2erJri40(Y{SD))qCq><XRN*]ermuA<K@ls-9699d2270bde3f37fb84a39b300744b786d35019.c2tfcd5q6dcd.ap-southeast-1.rds.amazonaws.com:5432/myrts"
+Environment="JWT_SECRET=myrts"
+Environment="API_ASSETS=/var/lib/myrts/data"
+Environment="BASE_URL=https://api.myrts.id"
+Environment="WEB_URL=https://myrts.id"
+Environment="LOG_LEVEL=info"
+Environment="LOG_PATH=/var/lib/myrts/logs"
+Environment="API_PORT=1451"
+Environment="STREAM_PORT=1452"
+
+[Install]
+WantedBy=multi-user.target
