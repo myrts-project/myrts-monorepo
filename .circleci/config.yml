@@ -31,5 +31,4 @@ jobs:
 workflows:
   build:
     jobs:
-      - rust
       - client
