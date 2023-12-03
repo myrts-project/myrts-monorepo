@@ -11,4 +11,4 @@ COPY --from=downloader /usr/local/bin/gotty /usr/local/bin
 
 EXPOSE 8080
 
-CMD ["gotty", "-w", "-p", "8080", "/bin/bash"]
+CMD ["gotty", "-w", "-p", "8080", "-a", "0.0.0.0", "/bin/bash"]
