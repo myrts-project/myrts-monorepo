@@ -85,10 +85,30 @@ class MyRTS {
 						urls: 'stun:stun.l.google.com:19302'
 					},
 					{
+						urls: 'stun:relay1.expressturn.com:3478',
+						username: 'ef4DP1T7KBV01KPEXX',
+						credential: 'D6QfPEuY1IsGOAF2',
+					},
+					{
 						urls: turn.url,
 						username: turn.username,
 						credential: turn.password
-					}
+					},
+					{
+						urls: 'turn:relay1.expressturn.com:3478',
+						username: 'ef4DP1T7KBV01KPEXX',
+						credential: 'D6QfPEuY1IsGOAF2',
+					},
+					{
+						urls: 'turn:relay1.expressturn.com:3478?transport=tcp',
+						username: 'ef4DP1T7KBV01KPEXX',
+						credential: 'D6QfPEuY1IsGOAF2',
+					},
+					{
+						urls: 'turn:relay1.expressturn.com:3478?transport=udp',
+						username: 'ef4DP1T7KBV01KPEXX',
+						credential: 'D6QfPEuY1IsGOAF2',
+					},
 				]
 			});
 			m.getTracks().forEach((track) => {
