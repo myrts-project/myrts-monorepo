@@ -22,7 +22,7 @@ RUN chmod +x ./run.sh
 
 RUN apt-get update && apt install -y libavutil-dev libavformat-dev libavfilter-dev libavdevice-dev libasound2-dev libogg-dev libopusfile-dev ffmpeg libpq-dev
 
-EXPOSE 80 1451 1452
+EXPOSE 80 1451 1452 3478 3478/udp 50000-65535 50000-65535/udp
 
 
 CMD ["./run.sh"]
