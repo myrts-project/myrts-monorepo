@@ -81,56 +81,18 @@ class MyRTS {
 			});
 			this.peer = new RTCPeerConnection({
 				iceServers: [
-					// {
-					//         urls: "stun:stun.relay.metered.ca:80",
-					// },
-					// {
-					//         urls: "turn:a.relay.metered.ca:80",
-					//         username: "c3394818f8db653b69aad9f7",
-					//         credential: "2N419uq+EjdFuarv",
-					// },
-					// {
-					//         urls: "turn:a.relay.metered.ca:80?transport=tcp",
-					//         username: "c3394818f8db653b69aad9f7",
-					//         credential: "2N419uq+EjdFuarv",
-					// },
-					// {
-					//         urls: "turn:a.relay.metered.ca:443",
-					//         username: "c3394818f8db653b69aad9f7",
-					//         credential: "2N419uq+EjdFuarv",
-					// },
-					// {
-					//         urls: "turn:a.relay.metered.ca:443?transport=tcp",
-					//         username: "c3394818f8db653b69aad9f7",
-					//         credential: "2N419uq+EjdFuarv",
-					// }
 					{
-						urls: 'stun:stun.l.google.com:19302'
+					        urls: "stun:stun.l.google.com:19302",
 					},
 					{
-						urls: 'stun:relay1.expressturn.com:3478',
-						username: 'ef4DP1T7KBV01KPEXX',
-						credential: 'D6QfPEuY1IsGOAF2',
+					        urls: "turn:relay.myrts.id:3478",
+					        username: "myrts",
+					        credential: "myrts",
 					},
 					{
-						urls: turn.url,
-						username: turn.username,
-						credential: turn.password
-					},
-					{
-						urls: 'turn:relay1.expressturn.com:3478',
-						username: 'ef4DP1T7KBV01KPEXX',
-						credential: 'D6QfPEuY1IsGOAF2',
-					},
-					{
-						urls: 'turn:relay1.expressturn.com:3478?transport=tcp',
-						username: 'ef4DP1T7KBV01KPEXX',
-						credential: 'D6QfPEuY1IsGOAF2',
-					},
-					{
-						urls: 'turn:relay1.expressturn.com:3478?transport=udp',
-						username: 'ef4DP1T7KBV01KPEXX',
-						credential: 'D6QfPEuY1IsGOAF2',
+					        urls: "turn:relay.myrts.id?transport=tcp",
+					        username: "myrts",
+					        credential: "myrts",
 					},
 				]
 			});
