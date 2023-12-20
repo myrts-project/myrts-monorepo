@@ -18,13 +18,14 @@ jobs:
             name: Prepare
             command: |
               apt-get update
-              apt-get install -y pkg-config libopusfile-dev llvm-dev libclang-dev clang openssl libssl-dev libasound2-dev libudev-dev libavutil-dev libavcodec-dev libavformat-dev libavfilter-dev libavdevice-dev ffmpeg libpq-dev
+              apt-get install -y pkg-config libopusfile-dev llvm-dev libclang-dev clang openssl libssl-dev libasound2-dev libudev-dev libavutil-dev libavcodec-dev libavformat-dev libavfilter-dev libavdevice-dev ffmpeg libpq-dev upx-ucl
         - run:
             name: Build
             command: |
               source $HOME/.cargo/env
               cd rust
               cargo build --release -p api-bin
+              upx --best --lzma target/release/api-bin
               cp target/release/api-bin /tmp/api-bin
         - store_artifacts:
             path: /tmp/api-bin
@@ -46,13 +47,14 @@ jobs:
           name: Prepare
           command: |
             sudo apt-get update
-            sudo apt-get install -y pkg-config libopusfile-dev llvm-dev libclang-dev clang openssl libssl-dev libasound2-dev libudev-dev libavutil-dev libavcodec-dev libavformat-dev libpq-dev
+            sudo apt-get install -y pkg-config libopusfile-dev llvm-dev libclang-dev clang openssl libssl-dev libasound2-dev libudev-dev libavutil-dev libavcodec-dev libavformat-dev libpq-dev upx-ucl
       - run:
           name: Build
           command: |
             source $HOME/.cargo/env
             cd rust
             cargo build --release -p myrts-client
+            upx --best --lzma target/release/myrts-client
             cp target/release/myrts-client /tmp/myrts-client
       - store_artifacts:
           path: /tmp/myrts-client
