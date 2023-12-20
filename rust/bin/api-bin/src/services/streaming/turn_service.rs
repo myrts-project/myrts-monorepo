@@ -30,9 +30,9 @@ async fn turn(stream: Stream, state: Data<WsState>) -> Result<()> {
         return stream.disconnect().await;
     }
     let turn = Turn {
-        url: "turn:relay1.expressturn.com:3478".to_owned(),
-        username: "ef4DP1T7KBV01KPEXX".to_owned(),
-        password: "D6QfPEuY1IsGOAF2".to_owned(),
+        url: "turn:relay.myrts.id:3478".to_owned(),
+        username: "myrts".to_owned(),
+        password: "myrts".to_owned(),
     };
     stream.write("turn", turn).await
 }

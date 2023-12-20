@@ -86,15 +86,15 @@ async fn new_rtc(receive_audio: bool) -> Result<RTCPeerConnection> {
                     ..Default::default()
                 },
                 RTCIceServer {
-                    urls: vec!["turn:relay1.expressturn.com:3478".to_owned()],
-                    username: "ef4DP1T7KBV01KPEXX".to_owned(),
-                    credential: "D6QfPEuY1IsGOAF2".to_owned(),
+                    urls: vec!["turn:relay.myrts.id:3478".to_owned()],
+                    username: "myrts".to_owned(),
+                    credential: "myrts".to_owned(),
                     credential_type: RTCIceCredentialType::Password,
                 },
                 RTCIceServer {
-                    urls: vec!["turn:relay1.expressturn.com:3478?transport=tcp".to_owned()],
-                    username: "ef4DP1T7KBV01KPEXX".to_owned(),
-                    credential: "D6QfPEuY1IsGOAF2".to_owned(),
+                    urls: vec!["turn:relay.myrts.id:3478?transport=tcp".to_owned()],
+                    username: "myrts".to_owned(),
+                    credential: "myrts".to_owned(),
                     credential_type: RTCIceCredentialType::Password,
                 },
             ],
