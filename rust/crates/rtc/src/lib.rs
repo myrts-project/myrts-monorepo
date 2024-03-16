@@ -81,9 +81,9 @@ async fn new_rtc(receive_audio: bool) -> Result<RTCPeerConnection> {
     let peer = api
         .new_peer_connection(RTCConfiguration {
             ice_servers: vec![RTCIceServer {
-                urls: vec!["turn:relay1.expressturn.com:3478".to_owned()],
-                username: "ef4DP1T7KBV01KPEXX".to_owned(),
-                credential: "D6QfPEuY1IsGOAF2".to_owned(),
+                urls: vec!["turn:152.42.216.199:3478".to_owned()],
+                username: "myrts".to_owned(),
+                credential: "myrts".to_owned(),
                 credential_type: RTCIceCredentialType::Password,
             }],
             ..Default::default()
