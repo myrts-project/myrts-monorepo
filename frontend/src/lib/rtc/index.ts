@@ -82,9 +82,9 @@ class MyRTS {
 			this.peer = new RTCPeerConnection({
 				iceServers: [
 					{
-					        urls: "turn:relay1.expressturn.com:3478",
-					        username: "ef4DP1T7KBV01KPEXX",
-					        credential: "D6QfPEuY1IsGOAF2",
+					        urls: "turn:152.42.216.199:3478",
+					        username: "myrts",
+					        credential: "myrts",
 					},
 				]
 			});
