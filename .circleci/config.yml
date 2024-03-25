@@ -9,7 +9,7 @@ jobs:
         - run:
             name: Install Rust
             command: |
-              apt-get update
+              apt-get update -y
               apt-get install -y curl
               curl https://sh.rustup.rs -sSf | sh -s -- -y
               source $HOME/.cargo/env
