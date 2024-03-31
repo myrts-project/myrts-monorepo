@@ -2,7 +2,7 @@
 	import flatpickr from 'flatpickr';
 	import 'flatpickr/dist/themes/material_blue.css';
 	import '../../../styles/datepicker.scss';
-	import { onMount } from 'svelte';
+	import { onMount, afterUpdate } from 'svelte';
 	import { Label, type FormSizeType, Badge, CloseButton } from 'flowbite-svelte';
 	import { twMerge } from 'tailwind-merge';
 	import type { Instance } from 'flatpickr/dist/types/instance';
@@ -39,6 +39,22 @@
 	};
 
 	onMount(() => {
+		fp = flatpickr(elem, {
+			enableTime: false,
+			mode: 'multiple',
+			dateFormat: 'd',
+			conjunction: '|'
+		});
+		if (onlyDate) {
+			const { from: minDate, to: maxDate } = filterMonth();
+			fp.set({
+				minDate: minDate,
+				maxDate: maxDate
+			});
+		}
+	});
+
+	afterUpdate(() => {
 		fp = flatpickr(elem, {
 			enableTime: false,
 			mode: 'multiple',
