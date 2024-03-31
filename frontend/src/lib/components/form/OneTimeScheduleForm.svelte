@@ -125,7 +125,13 @@
 <div class="mb-6">
 	<Label>
 		Tahun
-		<Select class="mt-2" bind:value={year} items={years} placeholder="Pilih Tahun" />
+		<Select
+			class="mt-2"
+			bind:value={year}
+			items={years}
+			placeholder="Pilih Tahun"
+			on:change={(e) => (month = month)}
+		/>
 	</Label>
 </div>
 <div class="mb-6">
@@ -134,7 +140,7 @@
 		<Select class="mt-2" bind:value={month} items={months} placeholder="Pilih Bulan" />
 	</Label>
 </div>
-<DatePicker bind:year bind:month onlyDate={true} bind:value={selectedDates} label="Pilih Tanggal" />
+<!-- <DatePicker {year} {month} onlyDate={true} bind:value={selectedDates} label="Pilih Tanggal" /> -->
 <TimePicker label="Pilih Jam" bind:value={selectedTimes} />
 <ModalSelect label="Pilih AVS" items={avs} bind:value={selectedAvs} icon={Icon.Server} />
 {#if selectedAvs.length > 0}

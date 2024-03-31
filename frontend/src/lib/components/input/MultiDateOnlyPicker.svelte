@@ -3,7 +3,7 @@
 	import Calendar from '../icon/Calendar.svelte';
 	import Label from './Label.svelte';
 	import flatpickr from 'flatpickr';
-	import { onMount } from 'svelte';
+	import { beforeUpdate, onMount } from 'svelte';
 	import 'flatpickr/dist/themes/material_blue.css';
 	import '../../../styles/datepicker.scss';
 	import BadgeLabel from '../badge/BadgeLabel.svelte';
@@ -43,6 +43,22 @@
 		if (noheader) {
 			fp?.calendarContainer.classList.add('noheader');
 		}
+	});
+
+	beforeUpdate(() => {
+		const date = new Date();
+		date.setFullYear(year);
+		date.setMonth(month - 1);
+		if (noheader) {
+			date.setFullYear(2023);
+			date.setMonth(9);
+		}
+		const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+		const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+		fp?.set({
+			minDate: firstDay,
+			maxDate: lastDay
+		});
 	});
 
 	const remove = (item: number) => {

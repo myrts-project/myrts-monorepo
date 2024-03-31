@@ -2,7 +2,7 @@
 	import flatpickr from 'flatpickr';
 	import 'flatpickr/dist/themes/material_blue.css';
 	import '../../../styles/datepicker.scss';
-	import { onMount, afterUpdate } from 'svelte';
+	import { onMount } from 'svelte';
 	import { Label, type FormSizeType, Badge, CloseButton } from 'flowbite-svelte';
 	import { twMerge } from 'tailwind-merge';
 	import type { Instance } from 'flatpickr/dist/types/instance';
@@ -54,21 +54,19 @@
 		}
 	});
 
-	afterUpdate(() => {
-		fp = flatpickr(elem, {
-			enableTime: false,
-			mode: 'multiple',
-			dateFormat: 'd',
-			conjunction: '|'
-		});
-		if (onlyDate) {
-			const { from: minDate, to: maxDate } = filterMonth();
-			fp.set({
-				minDate: minDate,
-				maxDate: maxDate
-			});
+	const onblur = () => {
+		if (fp) {
+			if (onlyDate) {
+				const { from: minDate, to: maxDate } = filterMonth();
+				fp.set({
+					minDate: minDate,
+					maxDate: maxDate
+				});
+			}
 		}
-	});
+
+		alert(dvalue);
+	};
 
 	$: value = dvalue != '' ? dvalue.split('|').map(Number) : [];
 </script>
@@ -80,6 +78,7 @@
 			type="text"
 			bind:value={dvalue}
 			bind:this={elem}
+			on:blur={onblur}
 			{disabled}
 			class="absolute bottom-0 left-1/2 transform -translate-x-1/2 opacity-0 h-0 -z-10"
 		/>
@@ -99,7 +98,6 @@
 							<Badge
 								color="primary"
 								large={size === 'lg'}
-								dismissable
 								params={{ duration: 100 }}
 								on:close={() => {}}
 							>
