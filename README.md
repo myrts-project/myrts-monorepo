@@ -1,4 +1,4 @@
-# MYRTS
+# MYRTS (Legacy)
 
 This repository contains all the code used in developing the MYRTS project.
 Before this, the repository was separated into multiple repositories.
