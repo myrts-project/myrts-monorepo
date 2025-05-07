@@ -18,8 +18,8 @@ jobs:
                 override: true
             - name: Prepare Dependencies
               run: |
-                apt-get update
-                apt-get install -y pkg-config libopusfile-dev llvm-dev libclang-dev clang openssl libssl-dev libasound2-dev libudev-dev libavutil-dev libavcodec-dev libavformat-dev libavfilter-dev libavdevice-dev ffmpeg libpq-dev upx-ucl
+                sudo apt-get update
+                sudo apt-get install -y pkg-config libopusfile-dev llvm-dev libclang-dev clang openssl libssl-dev libasound2-dev libudev-dev libavutil-dev libavcodec-dev libavformat-dev libavfilter-dev libavdevice-dev ffmpeg libpq-dev upx-ucl
             - name: Build
               run: |
                 source $HOME/.cargo/env
